@@ -3,7 +3,6 @@
     A client library that loads on the browser side: socket.io-client
 */
 
-
 // Express initializes app to be a function handler that you can supply to an HTTP server 
 var app = require('express')(); 
 var http = require('http').Server(app);
