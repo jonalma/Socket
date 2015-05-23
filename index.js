@@ -13,9 +13,19 @@ app.get('/', function(req, res){
   res.sendfile('index.html');
 });
 
+// io.on('connection', function(socket){
+//   console.log('a user connected');
+// });
+
 //listen on the connection event for incoming sockets, and I log it to the console.
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  //Each socket also fires a special disconnect event:
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  
 });
 
 //We make the http server listen on port 3000.
