@@ -6,7 +6,6 @@
 
 // Express initializes app to be a function handler that you can supply to an HTTP server 
 var app = require('express')(); 
-// HTTP server
 var http = require('http').Server(app);
 //initialize a new instance of socket.io by passing the http (the HTTP server) object. 
 var io = require('socket.io')(http);
@@ -19,10 +18,6 @@ var io = require('socket.io')(http);
 app.get('/', function(req, res){
   res.sendfile('index.html');
 });
-
-// io.on('connection', function(socket){
-//   console.log('a user connected');
-// });
 
 //listen on the connection event for incoming sockets, and I log it to the console.
 io.on('connection', function(socket){

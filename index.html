@@ -16,6 +16,7 @@
 
 <body>
   <ul id="messages"></ul>
+
   <form action="">
     <input id="m" autocomplete="off" /><button>Send</button>
   </form>
@@ -25,13 +26,14 @@
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
     // not specifying any URL when calling io(), since it defaults to trying to connect to the host that serves the page
-    // load the socket.io-client, which exposes a io global and then connect
-    var socket = io();
+    //That’s all it takes to load the socket.io-client, which exposes a io global, and then connect
+    var socket = io(); 
 
     //when the user types in a message, the server gets it as a chat message event.
     $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
+      //user types a message, then server gets it as 'chat message' 
+      socket.emit('chat message', $('#m').val()); 
+      $('#m').val(''); //clear input box after submit
       return false;
     });
 
